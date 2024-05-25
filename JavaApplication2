@@ -1,0 +1,45 @@
+package javaapplication2;
+
+import java.util.Scanner;
+
+public class JavaApplication2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite o numero de alunos: ");
+        int N = scanner.nextInt();
+
+        System.out.println("Digite o numero de provas: ");
+        int M = scanner.nextInt();
+
+        int Aprovados = 0;
+        int Reprovados = 0;
+
+        for (int aluno = 1; aluno <= N; aluno++) {
+            float somaNotas = 0;
+
+            for (int nProva = 1; nProva <= M; nProva++) {
+                System.out.println("Digite a nota da prova " + nProva + " do aluno " + aluno + ": ");
+                double nota = scanner.nextDouble();
+                somaNotas += nota;
+            }
+
+            float media = somaNotas / M;
+
+            System.out.println("A nota final do aluno " + aluno + " é: " + media);
+
+            if (media >= 70) {
+                System.out.println("O aluno " + aluno + " esta aprovado.");
+                Aprovados++;
+            } else {
+                System.out.println("O aluno " + aluno + " esta reprovado.");
+                Reprovados++;
+            }
+        }
+
+        System.out.println("Total de alunos aprovados: " + Aprovados);
+        System.out.println("Total de alunos reprovados: " + Reprovados);
+
+        scanner.close();
+    }
+}
